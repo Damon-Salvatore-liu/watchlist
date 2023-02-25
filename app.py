@@ -164,6 +164,7 @@ def logout():
     flash('Goodbye.')
     return redirect(url_for('index'))  # 重定向回首页
 
+
 @app.route('/settings', methods=['GET', 'POST'])
 @login_required
 def settings():
@@ -184,6 +185,7 @@ def settings():
         return redirect(url_for('index'))
 
     return render_template('settings.html')
+
 
 @app.errorhandler(404)
 def page_not_found(e):
@@ -219,3 +221,6 @@ def delete(movie_id):
     db.session.commit()  # 提交数据库会话
     flash('Item deleted.')
     return redirect(url_for('index'))  # 重定向回主页
+
+
+# 测试jenkins构建
